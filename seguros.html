@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguros JRT</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: -webkit-linear-gradient(90deg, #a97c50,#f0d1bf,#f6ad1b);
+            background: linear-gradient(90deg, #a97c50,#f0d1bf,#f6ad1b);
+            color: #000000; /*de las letras*/
+        }
+        header {
+            background-color: #000000; 
+            padding: 15px;
+            text-align: center;
+            color:#F5E6C3; /*de las letras del header*/
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            background-color: white;
+        }
+        /*Contenedor de las Cards*/
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        /*Disenio gral de las cards*/
+        .card {
+            background-color: #c4c7ca;
+            color:black;
+            border-radius: 10px;
+            width: 200px;
+            height: 250px;   
+        }
+        .card__inner{
+            width: 200px;
+            height: 250px;
+            position:relative;
+            transform-style:preserve-3d;
+            transition:transform 0.6s;
+        }
+
+        /*Activa el giro cuando el usuario pase el mouse*/
+        .card:hover .card__inner{
+            transform: rotateY(180deg);
+        }
+        .card__front,.card__back{
+            width: 200px;
+            height: 250px;
+            position:absolute;
+            backface-visibility: hidden;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px chocolate;
+        
+        }
+
+        /*Frenre de la card: Que solo se vea la imagen*/
+        .card__front{
+            background:white;
+        }
+        .card__image{
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        /*Reverso de la card:muestra el contenido*/
+        .card__back{
+            background-color: white;
+            transform:rotateY(180deg);
+            padding:15px;
+            text-align:center;
+        }
+        
+       .card__title{
+        font-size:18px;
+        font-weight:bold;
+        margin-bottom:10px 0;
+       }
+       .card__description{
+        font-size: 14px;
+        padding: 5px;
+       }
+
+        .carousel {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .container{
+            display:flex;
+            gap:20px;
+            justify-content:center;
+            align-items:center;
+            flex-wrap:wrap;
+            width:100%;
+            margin: 0 auto;
+            text-align:center;
+        }
+        .loader{
+            width: 160px;
+            height: 120px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            background-color: #c4c7ca;
+            position: relative;
+            overflow: hidden;
+        }
+        .loader__image{
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+        }
+        .grua-card {
+            background-color: #dc3545;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #novedades{
+            text-align:center;
+            background-color: white;
+            padding:20px;
+        }
+        .news-wrapper{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            max-width:650px;
+            margin:auto;
+        }
+        .news-container{
+            display:flex;
+            overflow:hidden;
+            width:600px;
+        }
+        .news-track{
+            display:flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .news-card{
+            min-width: 100%;
+            background: #f5f5f5;
+            box-shadow: 0 4px 10px  chocolate;
+            border-radius:10px;
+            overflow:hidden;
+            transition:transform o.5s ease-in-out;
+        }
+        .news-card img{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .news-content{
+            padding:15px;
+            text-align:center;
+        }
+        .news-content h3{
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .news-content p{
+            font-size:14px;
+            color:#333
+        }
+        .btn-leer-mas{
+            display:inline-block;
+            margin-top:10px;
+            padding:8px 12px;
+            background-color: #007BFF;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            font-size:14px;
+        }
+        .prev-btn, .next-btn{
+            background: none;
+            border:none;
+            font-size:24px;
+            cursor:pointer;
+            padding:10px;
+            color:#7f809f;
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .prev-btn{left:0;}
+        .next-btn{right:0;}
+
+        .card-link {
+            text-decoration: none; /* Quita el subrayado del enlace */
+            color: inherit; /* Mantiene el color del texto */
+            display: inline-block; /* Hace que el enlace envuelva correctamente la tarjeta */
+        }
+        
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img  
+               width="100"
+              height="auto"
+              alt="Logo Asesor"
+              src="logo_JRT.jpeg"
+            >
+         <div class="nombre">Julio Rafael Tica</div>
+         <h2>Productor Asesor de Seguros</h2>
+         <h2>Matrícula: 103647</h2>
+        </div>
+        
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#seguros">SEGUROS</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#siniestros">SINIESTROS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Protege lo que más importa con el respaldo de las mejores aseguradoras</h2> 
+
+
+    <section>
+        <h3 >Te ofrezco soluciones integrales diseñadas a tu medida, porque tu tranquilidad es mi prioridad. Ya sea para proteger tu vida personal o el crecimiento de tu empresa, cuento con un amplio portfolio de seguros.
+        </h3>
+     <h3 >No importa tu rubro o situación personal, te brindo asesoramiento personalizado, seriedad y la seguridad de estar siempre bien respaldado.</h3>
+     <h3 class="mayusculas">📩 Contáctame hoy y elige la mejor protección para tu futuro.</h3>
+    </section>
+
+    
+    <section id="seguros">
+        <h2>SEGUROS OFRECIDOS</h2>
+        
+        <div class="cards-container">
+            <!-- Card 1 -->
+
+            <a href="seguro_hogar.html" class="card-link">
+               <div class="card">
+                 <div class="card__inner">
+                     <div class="card__front">
+                         <img src="seguro_hogar.jpg" alt="Seguro del Hogar" class="card__image">
+                     </div>
+                     <div class="card__back">
+                         <p class="card__title">Seguro de Hogar</p>
+                         <p class="card__description">La mejor cobertura para tu moto.</p>
+                      </div>
+                  </div>
+              </div>
+         </a>
+
+              <!-- Card 2 -->
+           
+            <a href="seguro_moto.html" class="card-link">
+               <div class="card">
+                 <div class="card__inner">
+                     <div class="card__front">
+                        <img src="seguro_moto.jpg" alt="Seguro de Moto" class="card__image">
+                     </div>
+                     <div class="card__back">
+                           <p class="card__title">Seguro de Moto</p>
+                          <p class="card__description">La mejor cobertura para tu moto.</p>
+                     </div>
+                  </div>
+               </div>
+            </a>
+    
+            <!-- Card 3 (ejemplo adicional) -->
+            <a href="seguro_auto.html" class="card-link">
+               <div class="card">
+                  <div class="card__inner">
+                     <div class="card__front">
+                         <img src="seguro_auto.jpg" alt="Seguro de Auto" class="card__image">
+                     </div>
+                     <div class="card__back">
+                          <p class="card__title">Seguro de Auto</p>
+                          <p class="card__description">La mejor cobertura para tu auto.</p>
+                     </div>
+                   </div>
+               </div>
+            </a>
+        </div>
+    </section>
+
+    <!--Modificar la transicion y el movimiento en CSS-->
+    
+    
+    
+    <section id="novedades">
+        <h2>NOVEDADES</h2>
+        <!--Noticia 1-->
+        <div class="news-wrapper">
+            <button class="prev-btn">&#10094;</button>  <!--Flecha Izq-->
+
+            <div class="news-container">
+                <div class="news-track">
+                     <div class="news-card">
+                         <img src="precedente_actualizacion_auto.png" alt="Nuevo precendente">   
+                         <div class="news-content">
+                             <h3>Precedente para la actualización de la cobertura del seguro de Autos</h3>
+                             <p>En Río Negro, un fallo sentó un precedente para la actualización de la cobertura del seguro de autos</p> 
+                             <a href="#" class="btn-leer-mas">Leer más</a>
+                         </div>
+                      </div>
+             
+
+                      <div class="news-card">
+                         <img src="Programa_ejecutivo_seguro.jpg"  alt="Inscripción al Programa Ejecutivo de Seguros de Personas">
+                         <div class="news-content">
+                             <h3>Abre la inscripción a una nueva edición de Programa Ejecutivo de Seguros de Personas</h3>
+                             <p>La Asociación Civil de Aseguradores de Vida y Retiro de la República Argentina (AVIRA) anunció que está abierta la inscripción a la duodécima edición de su Programa Ejecutivo de Seguros de Personas (PESP), organizado juntamente con la Escuela de Negocios de la Pontificia Universidad Católica Argentina (UCA).</p>
+                             <a href="#" class="btn-leer-mas">Leer más</a>
+                         </div>
+                      </div>
+                </div>
+            </div>
+            <button class="next-btn">&#10095;</button> <!-- Flecha Derecha -->
+        </div>
+        
+    </section>
+    
+    <section id="aseguradoras">
+        <h2>ASEGURADORAS</h2>
+        <div class="container">
+            <div class="loader" style="--clr: #a97c50; --i:1;">
+                <div class="loader__content">
+                    <img src="libra_seguros.jpg" alt="Libra Seguros" class="loader__image">
+                </div>
+                <div class="loader__color"></div>
+            </div>
+    
+            <div class="loader" style="--clr: #f0d1bf; --i:2;">
+                <div class="loader__content">
+                    <img src="mercantil_andina.png" alt="Mercantil Andina" class="loader__image">
+                </div>
+                <div class="loader__color"></div>
+            </div>
+    
+            <div class="loader" style="--clr: #f6ad1b; --i:3;">
+                <div class="loader__content">
+                    <img src="galeno.jpg" alt="Galeno" class="loader__image">
+                </div>
+                <div class="loader__color"></div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <script src="script.js"></script>
+
+    <footer>
+        Copyright: 2025. Todos los derechos reservados
+    </footer>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const track = document.querySelector(".news-track");
+        const cards = document.querySelectorAll(".news-card");
+        let index = 0;
+
+        document.querySelector(".next-btn").addEventListener("click", function() {
+            if (index < cards.length - 1) {
+                index++;
+            } else {
+                index = 0; // Reinicia al principio
+            }
+            updateCarousel();
+        });
+
+        document.querySelector(".prev-btn").addEventListener("click", function() {
+            if (index > 0) {
+                index--;
+            } else {
+                index = cards.length - 1; // Vuelve al final si está en el inicio
+            }
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const offset = -index * 100; // Mueve las tarjetas
+            track.style.transform = `translateX(${offset}%)`;
+        }
+    });
+</script>
