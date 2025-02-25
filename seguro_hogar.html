@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguro de Hogar</title>
+    <link rel="stylesheet" href="styles.css"/> <!-- Usa la misma hoja de estilos -->
+    <style>
+   
+    </style> 
+    
+</head>
+
+<body class="hogar">
+    <div class="background"></div>    
+    <header class="header">
+        <div class="content">
+           
+            <div class="logo">
+                <img 
+                    width="100"
+                    height="auto"
+                    alt="seguro de hogar"
+                    src="logo_JRT.jpeg"
+                >
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="seguro_auto.html">Seguro de Auto</a></li>
+                        <li><a href="seguro_moto.html">Seguro de Moto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h1>SEGURO DE HOGAR</h1>
+    </section>
+
+    <section>
+       
+        <h2>DESCUBRE NUESTRAS COBERTURAS PARA PROTEGER TU HOGAR ANTE CUALQUIER IMPREVISTO.</h2>
+        <h2>Cobertura:</h2>
+        <ul>
+            <li>Incendio edificio.</li>
+            <li>Responsabilidad Civil hechos privados.</li>
+            <li>Remoción de escombros.</li>
+            <li>Gastos de extinción de incendio.</li>
+            <li>Honorarios profesionales.</li>
+            <li>Incendio contenido.</li>
+            <li>Cláusula adicional de huracán,vendaval,ciclón y tornado contenido.</li>
+        </ul>
+        <h2>Beneficios:</h2>
+        <ul>
+            <li>Cobertura contra incendios y robos.</li>
+            <li>Protección ante desastres naturales.</li>
+            <li>Asistencia 24/7.</li>
+        </ul>
+
+        <!--Formulario dentro del dialog modal-->
+        <dialog id="dialog">
+            <h1>FORMULARIO DE CONTACTO</h1>
+            <form id="contactForm"  method= "post" action="https://formsubmit.co/jrtica@gmail.com">
+                <fieldset>
+                    <legend>Información personal</legend>
+                    <label>Nombre: </label>
+                        <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" required>
+                    <label>Apellido: </label>
+                       <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" required>
+                    <label>Email: </label>
+                       <input type="email" name="email" id="email_user" placeholder="email@JRT.com" required>
+                    <label>Teléfono: </label>
+                       <input type="tel" name="Telefono" id="phone" placeholder="Teléfono">
+                </fieldset>
+
+                <fieldset>
+                    <div>
+                        <label>Descripción:</label>
+                        <input type="text" name="descripcion" id="descripcion_seguro" placeholder="Describí tu casa.">
+                    </div>
+                </fieldset>
+
+                <input type="hidden" name="_subject" value="Nueva cotización de seguro">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="flex flex-space-between">
+                    <button type="submit" class="cta">Enviar</button>
+                    <button type="button" id="hide">Salir</button>
+                </div>
+            </form>
+        </dialog>    
+        
+        <button id="show">Cotizar seguro</button>
+
+       <script>
+          document.addEventListener("DOMContentLoaded", function () {
+             const dialog = document.getElementById('dialog');
+             const showButton = document.getElementById('show');
+             const hideButton = document.getElementById('hide');
+             const form = document.getElementById('contactForm');
+
+            // Mostrar el formulario modal
+            showButton.addEventListener('click', () => {
+               dialog.showModal();
+            });
+
+            // Ocultar el formulario modal
+            hideButton.addEventListener('click', () => {
+                dialog.close();
+            });
+
+            // Enviar el formulario
+            form.addEventListener('submit', function (event) {
+               vent.preventDefault(); // Evita la recarga de la página
+            
+                const formData = new FormData(form);
+            
+                fetch(form.action, {
+                   method: 'POST',
+                  body: formData
+                })
+               .then(response => {
+                   if (response.ok) {
+                       alert('Formulario enviado correctamente!');
+                       form.reset(); // Limpia el formulario después del envío
+                       dialog.close(); // Cierra el modal
+                   } else {
+                      alert('Error al enviar el formulario. Inténtalo de nuevo.');
+                   }
+               })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert('Error al enviar el formulario. Inténtalo de nuevo.');
+               });
+           });
+        });
+      </script> 
+  </section>
+
+
+   <footer>
+        <p>&copy; 2025 Seguros JRT</p>
+  </footer>
+</body>
+
+</html>
