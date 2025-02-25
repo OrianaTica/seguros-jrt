@@ -10,7 +10,7 @@ Esta es la página web oficial de Seguros JRT, un asesor de seguros que ofrece c
 ✅ Estilos en CSS personalizados  
 
 ## 📂 Estructura del Proyecto
-- `index.html` → Página principal  
+- `seguros.html` → Página principal  
 - `seguro_auto.html` → Página de seguros de auto  
 - `seguro_moto.html` → Página de seguros de moto  
 - `seguro_hogar.html` → Página de seguros de hogar  
