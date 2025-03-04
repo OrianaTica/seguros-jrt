@@ -345,16 +345,39 @@ padding: 5px;
 .hogar h1, .auto h1, .moto h1 {
     text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
 }
-.hogar section ul,
-.auto section ul,
-.moto section ul {
-    list-style-position: inside;
-    list-style-type: circle;
-    border: 2px solid chocolate;
-    background-color: #f5f5f5;
-    padding: 10px; /* Para mejorar la visualización */
-    border-radius: 5px; /* Opcional: bordes redondeados */
+
+.contenido {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    justify-content: space-between; /* Espaciado entre elementos */
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    padding: 20px;
 }
+
+.contenido .texto {
+    flex: 1; /* Que ocupe el espacio disponible */
+}
+
+.contenido .imagen {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centrar la imagen */
+}
+
+.contenido .imagen img {
+    width: 80%; /* Ajustar tamaño de la imagen */
+    max-width: 300px; /* Limitar el tamaño máximo */
+}
+
+/* Para invertir la posición de los elementos en Beneficios */
+.contenido.invertido {
+    flex-direction: row-reverse;
+}
+
+
+
+
+
 
 
 
