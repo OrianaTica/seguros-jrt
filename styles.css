@@ -348,30 +348,46 @@ padding: 5px;
 
 .contenido {
     display: flex;
-    align-items: center; /* Alinear verticalmente */
-    justify-content: space-between; /* Espaciado entre elementos */
-    gap: 20px; /* Espacio entre la imagen y el texto */
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espaciado entre texto e imagen */
+    max-width: 800px; /* Reduce el ancho total */
+    margin: 40px auto; /* Centrado */
     padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Efecto sutil */
+    border-radius: 10px;
 }
-
 .contenido .texto {
     flex: 1; /* Que ocupe el espacio disponible */
+    text-align: left;
+}
+.texto h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
-.contenido .imagen {
-    flex: 1;
-    display: flex;
-    justify-content: center; /* Centrar la imagen */
+.texto ul {
+    padding-left: 20px;
 }
-
-.contenido .imagen img {
-    width: 80%; /* Ajustar tamaño de la imagen */
-    max-width: 300px; /* Limitar el tamaño máximo */
+.imagen img {
+    width: 120px; /* Tamaño más controlado */
+    height: auto;
 }
-
 /* Para invertir la posición de los elementos en Beneficios */
 .contenido.invertido {
     flex-direction: row-reverse;
+}
+@media (max-width: 768px) {
+    .contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+    .invertido {
+        flex-direction: column;
+    }
+    .imagen img {
+        width: 100px;
+    }
 }
 footer {
     background-color: #333;
