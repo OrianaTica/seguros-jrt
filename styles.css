@@ -315,7 +315,7 @@ padding: 5px;
     display: inline-block; /* Hace que el enlace envuelva correctamente la tarjeta */
 }
 .hogar h1 {
-    background-image: url('seguro_casa_desc.png');
+    background-image: url('images/seguro_casa_desc.png');
     background-size: cover;
     background-position: center;
     color: #bb2f52;
@@ -324,7 +324,7 @@ padding: 5px;
     text-align: center;
 }
 .auto h1 {
-    background-image: url('seguro_auto_pag.jpg');
+    background-image: url('images/seguro_auto_pag.jpg');
     background-size: cover;
     background-position: center;
     color: #bb2f52;
@@ -334,7 +334,7 @@ padding: 5px;
 }
 
 .moto h1 {
-    background-image: url('seguro_moto_pag.jpg');
+    background-image: url('images/seguro_moto_pag.jpg');
     background-size: cover;
     background-position: center;
     color: #bb2f52;
