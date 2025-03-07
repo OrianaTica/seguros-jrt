@@ -152,9 +152,9 @@ padding: 5px;
 }
 .container{
     display:flex;
-    gap:20px;
+    gap:20px; /* Espacio entre elementos */
     justify-content: center;
-    align-items:center;
+    align-items:center; 
     flex-wrap:wrap;
     width:90%;
     margin: 0 auto;
@@ -372,10 +372,15 @@ padding: 5px;
 .texto ul {
     padding-left: 20px;
 }
+.imagen {
+    flex: 0.3; /* Para que la imagen tome hasta el 30% del espacio disponible */
+    display: flex;
+    justify-content: center; /* Centra la imagen */
+}
 .imagen img {
-    width: 20%; /* Tamaño más controlado */
+    width: 100%; /* Tamaño más controlado */
+    max-width: 150px; /* Tamaño máximo */
     height: auto;
-    display: block;
 }
 /* Para invertir la posición de los elementos en Beneficios */
 .contenido.invertido {
