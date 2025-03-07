@@ -375,6 +375,7 @@ padding: 5px;
 .imagen img {
     width: 20%; /* Tamaño más controlado */
     height: auto;
+    display: block;
 }
 /* Para invertir la posición de los elementos en Beneficios */
 .contenido.invertido {
