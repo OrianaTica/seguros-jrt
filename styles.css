@@ -350,7 +350,7 @@ padding: 5px;
 
 .contenido {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Para separar texto e imagen */
     align-items: center;
     gap: 20px; /* Espaciado entre texto e imagen */
     flex-wrap: wrap; 
