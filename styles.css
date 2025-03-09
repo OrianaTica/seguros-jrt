@@ -37,13 +37,13 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     margin: 0;
     gap: 15px; /* Agrega espacio entre los elementos */
     padding: 0;
 }
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: 0 15px;
 }
 nav ul li a {
