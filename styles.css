@@ -29,7 +29,7 @@ header {
 nav {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se acomoden si no caben en una sola línea */
-    justify-content: space-between; /* Distribuye los elementos de forma equitativa */
+    justify-content: center; /* Distribuye los elementos de forma equitativa */
     padding: 10px 20px;
     background-color: black; /* Ajusta según el diseño */
 }
