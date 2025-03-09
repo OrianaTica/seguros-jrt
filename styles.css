@@ -28,20 +28,21 @@ header {
 
 nav {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se acomoden si no caben en una sola línea */
     justify-content: center; /* Distribuye los elementos de forma equitativa */
+    align-items: center;
     padding: 10px 20px;
     background-color: black; /* Ajusta según el diseño */
 }
 nav ul {
     list-style: none;
-    display: inline;
+    display: flex;
+    justify-content: center; /* Asegura que los elementos queden centrados */
+    align-items: center;
     margin: 0;
-    gap: 15px; /* Agrega espacio entre los elementos */
+    gap: 30px; /* Agrega espacio entre los elementos */
 }
 nav ul li {
     display: inline-block;
-    margin: 0 15px;
 }
 nav ul li a {
     color: white;
