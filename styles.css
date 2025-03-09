@@ -399,6 +399,12 @@ padding: 5px;
         width: 80px;
         max-width: 120px;
     }
+    .hogar h1,
+    .auto h1,
+    .moto h1 {
+        font-size: 40px; /* Reduce el tamaño del texto */
+        padding: 80px; /* Ajusta el espacio para que no sea tan alto */
+    }
 }
 footer {
     background-color: #333;
