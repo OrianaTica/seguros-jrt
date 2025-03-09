@@ -30,14 +30,12 @@ nav {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se acomoden si no caben en una sola línea */
     justify-content: space-between; /* Distribuye los elementos de forma equitativa */
-    align-items: center; /* Alinea verticalmente */
     padding: 10px 20px;
     background-color: black; /* Ajusta según el diseño */
 }
 nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
     margin: 0;
     gap: 15px; /* Agrega espacio entre los elementos */
     padding: 0;
